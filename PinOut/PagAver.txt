@@ -1,0 +1,4 @@
+Pag 606 - reference Manual(TIMER MODE)
+pag 371 - reference Manual(INTERRUPT MODE)
+pag 49 - pinOUt
+pag 382 - reference manual (EXTI lines)
