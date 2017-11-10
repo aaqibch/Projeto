@@ -50,3 +50,9 @@ Reports/~$project design.pptx
 *.crf
 *.o
 *.hex
+*.d
+Code/Display/Objects/ExtDll.iex
+*.axf
+Code/Display/Objects/proj.build_log.htm
+*.dep
+*.scvd
