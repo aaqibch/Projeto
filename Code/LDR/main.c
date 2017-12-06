@@ -1,7 +1,10 @@
 #include "stm32f4xx.h"
 #include "ldr.h"
-
+uint16_t val;
 int main(){
 	initLDR();
-	while(1);
+	
+	val = getLDR();
+	while(1){
+	}
 }

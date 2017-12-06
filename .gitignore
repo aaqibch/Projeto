@@ -56,3 +56,11 @@ Code/Display/Objects/ExtDll.iex
 Code/Display/Objects/proj.build_log.htm
 *.dep
 *.scvd
+*.d
+Code/Display/Objects/proj.axf
+*.d
+*.map
+Code/Display/Listings/startup_stm32f40_41xxx.lst
+*.d
+Code/Display/Objects/main.d
+*.TMP

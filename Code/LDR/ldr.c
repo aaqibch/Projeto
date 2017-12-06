@@ -1,21 +1,18 @@
 #include "ldr.h"
 
-void analogCommonInit(void){
+void initLDR(void){
+	GPIO_InitTypeDef GPIO_InitStructure;	
+	ADC_InitTypeDef ADC_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
 	ADC_CommonInitTypeDef ADC_CommonInitStructure;
+	
 	ADC_CommonInitStructure.ADC_Mode = ADC_Mode_Independent;
   ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div2;
   ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
   ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;
   ADC_CommonInit(&ADC_CommonInitStructure);
-}
-
-
-void initLDR(void){
-	GPIO_InitTypeDef GPIO_InitStructure;	
-	ADC_InitTypeDef ADC_InitStructure;
-	NVIC_InitTypeDef NVIC_InitStructure;
 	
-	        /* Configure NVIC */
+	/* Configure NVIC */
   NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x0F;
@@ -41,11 +38,13 @@ void initLDR(void){
 	GPIO_InitStructure.GPIO_Pin = LDR_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AN;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(LDR_PORT, &GPIO_InitStructure);
 	
 	ADC_RegularChannelConfig(LDR_ADC, LDR_ADC_CH, 1, ADC_SampleTime_480Cycles);
+	
+	ADC_Cmd(LDR_ADC, ENABLE);
 }
 
 uint16_t getLDR(){
@@ -53,3 +52,4 @@ uint16_t getLDR(){
 	while( ADC_GetFlagStatus(LDR_ADC,ADC_FLAG_EOC) == RESET);
 	return ADC_GetConversionValue(LDR_ADC);
 }
+
