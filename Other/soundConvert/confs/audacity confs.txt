@@ -1,0 +1,7 @@
+Audacity
+import RAW
+
+32 bit float
+endian pequeno
+1 channel 
+8000

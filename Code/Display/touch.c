@@ -1,9 +1,9 @@
 #include "touch.h"
 
-#define LEFT 0X62
-#define RIGHT 0x38F
-#define TOP 0X4C
-#define BOT 0X395
+#define LEFT 0x85//0X62
+#define RIGHT 0x37F//0x38F
+#define TOP 0x50//0X4C
+#define BOT 0x39D//0X395
 #define W 320
 #define H 480
 
@@ -118,7 +118,8 @@ void getTouchXY(struct Touch *t){
 	
 	//0-left
 	//320-right
-	
+//	t->x = x;
+//	t->y = y;
 	t->x = (x-LEFT)*W/RIGHT;
 	t->y = (y-TOP)*H/BOT;
 	

@@ -1,0 +1,7 @@
+Audacity
+import RAW
+
+16 bit signed PCM
+endian pequeno
+2 channel 
+8000

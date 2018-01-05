@@ -15,8 +15,10 @@ PDMFilter_InitStruct Filter;
 
 void recordInit(void){
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_CRC, ENABLE);
+	//RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_CRC, ENABLE);
 
+	RCC->AHB1ENR |= RCC_AHB1ENR_CRCEN;
+	
 	Filter.LP_HZ=8000; 
 	Filter.HP_HZ=20;
 	Filter.Fs=16000;
@@ -49,10 +51,12 @@ void recordInit(void){
 	NVIC_Init(&NVIC_InitStructure);
 
 
-	RCC_PLLI2SCmd(ENABLE);
+	//RCC_PLLI2SCmd(ENABLE);
 	//I2S2 config
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
 	I2S_InitTypeDef I2S_InitStructure;
+	
+	SPI_I2S_DeInit(SPI2);
 	I2S_InitStructure.I2S_AudioFreq=32000;
 	I2S_InitStructure.I2S_Standard=I2S_Standard_LSB;
 	I2S_InitStructure.I2S_DataFormat=I2S_DataFormat_16b;
@@ -60,10 +64,15 @@ void recordInit(void){
 	I2S_InitStructure.I2S_Mode=I2S_Mode_MasterRx;
 	I2S_InitStructure.I2S_MCLKOutput=I2S_MCLKOutput_Disable;
 	I2S_Init(SPI2, &I2S_InitStructure);
-	I2S_Cmd(SPI2, ENABLE);
-
+	//I2S_Cmd(SPI2, ENABLE);
+	
+	// Profit ????
+	RCC_I2SCLKConfig(RCC_I2S2CLKSource_PLLI2S);
+	RCC_PLLI2SCmd(ENABLE);
+	while(RCC_GetFlagStatus(RCC_FLAG_PLLI2SRDY)==RESET);
+	
 	//Start
-	SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_RXNE, ENABLE);
+	//SPI_I2S_ITConfig(SPI2, SPI_I2S_IT_RXNE, ENABLE);
 }
 
 void recordStart(void){
@@ -95,7 +104,7 @@ void SPI2_IRQHandler(void){
     app = SPI_I2S_ReceiveData(SPI2);
     InternalBuffer[InternalBufferSize++] = HTONS(app);	//swap bytes
 
-		if (app>0)
+		if (app != 0)
 			STM_EVAL_LEDOn(LED4);
 		
     /* Check to prevent overflow condition */

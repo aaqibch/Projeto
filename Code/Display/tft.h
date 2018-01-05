@@ -17,8 +17,8 @@ void initTFT(void);
 void rectFillTFT(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c);
 void clearTFT(uint16_t c);
 void letterTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char letter);
-void stringTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[], uint8_t len);
-void buttonTFT(uint16_t x, uint16_t y, char str[], uint8_t len);
+void stringTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[]);
+void buttonTFT(uint16_t x, uint16_t y, char str[]);
 
 uint16_t RGBto565(uint8_t r, uint8_t g, uint8_t b);
 

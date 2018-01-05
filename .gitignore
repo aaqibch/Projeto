@@ -64,3 +64,4 @@ Code/Display/Listings/startup_stm32f40_41xxx.lst
 *.d
 Code/Display/Objects/main.d
 *.TMP
+*.wav

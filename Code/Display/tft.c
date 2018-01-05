@@ -131,6 +131,15 @@ void rectFillTFT(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c){
     for(j=0;j<h;j++)
       writeData16(c);
 }
+/*
+void rectFillTFT(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c){
+	int i,j;
+	setAdress(y, x, y+h-1, x+w-1);
+
+  for(i=0;i<w;i++)
+    for(j=0;j<h;j++)
+      writeData16(c);
+}*/
 
 void clearTFT(uint16_t c){
 	rectFillTFT(0, 0, WIDTH, HEIGHT, c);
@@ -154,7 +163,15 @@ void letterTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char letter){
 				rectFillTFT(x+(i*s),y+(j*s),s,s,c);
 }
 
-void stringTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[], uint8_t len){
+void stringTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[]){
+	int i;
+	while(str[i]){
+		letterTFT(x+(i*s*6),y,s,c,str[i]);
+		i++;
+	}
+}
+
+void stringTFT0(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[], uint8_t len){
 	int i;
 	for(i=0; i<len; i++)
 		letterTFT(x+(i*s*6),y,s,c,str[i]);
@@ -190,10 +207,10 @@ void letter2TFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char letter){
 	
 }
 
-void buttonTFT(uint16_t x, uint16_t y, char str[], uint8_t len){
+void buttonTFT(uint16_t x, uint16_t y, char str[]){
 	uint16_t w=240, h=60;
 	rectFillTFT(x,y,w,h,0xFFFF);
-	stringTFT(x+20,y+15,5,0,str,len);
+	stringTFT0(x+20,y+15,5,0,str,sizeof(&str)+1);
 	
 	hLineTFT(x,y,w,0);
 	hLineTFT(x,y+h,w,0);
@@ -218,4 +235,29 @@ void loadImg(uint16_t x, uint16_t y){
   for(i=0;i<dalt2.size;i+=2){
     writeData16(dalt2.arr[i+1]<<8 | dalt2.arr[i]);
 	}
+}
+
+void resizeImg(uint16_t x, uint16_t y, uint16_t s){
+	char arr [9];
+	uint16_t w = 3, h = 3;
+	int i, j;
+	int a;
+	
+	setAdress(x, y, x+(w*s)-1, y+(h*s)-1);
+	x = 0;
+	y = 0;
+	
+	for(j=0; j<h; j++){
+		if(j%s == 0)
+			y++;	
+		for(i=0; i<w; i++){
+			if(i%s == 0)
+				x++;
+			a = x + y*w*s;
+			a *= 2;
+			writeData16(arr[a+1]<<8 | arr[a]);
+		}
+		x = 0;
+	}
+	
 }

@@ -1,0 +1,2 @@
+cmd line
+hex2bin.exe data.hex

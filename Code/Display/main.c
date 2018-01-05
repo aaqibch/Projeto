@@ -1,6 +1,7 @@
 #include "stm32f4xx.h"
 #include "tft.h"
 #include "touch.h"
+#include "colortest.h"
 
 
 int main(){
@@ -9,32 +10,25 @@ int main(){
 	
 	initTFT();
 	clearTFT(0xFFFF);
-	buttonTFT(40,50,"Teste 1",7);
-	buttonTFT(40,150,"Teste 2",7);
-	buttonTFT(40,250,"Teste 3",7);
-
-	
-	
 	adcTouch();
-	getTouchZ();
+	buttonTFT(50,50,"hello");
+	stringTFT(50,150,3,0,"hello");
+	
+	colorTestInit();
+	
 	while(1){
+
+		
+		
+		
 		val = getTouchZ();
-		if(val<0x320){
-			
+		if(val<0x265 && val>0x245 ){
 			getTouchXY(&t);
-			if(inBox(40,50,240,60,t.x,t.y))
-				loadImg(0,50);
-			else if(inBox(40,150,240,60,t.x,t.y))
-				buttonTFT(40,150,"  OK   ",7);
-			else if(inBox(40,250,240,60,t.x,t.y))
-				buttonTFT(40,250,"  OK   ",7);
-			else{
-				clearTFT(0xFFFF);
-				buttonTFT(40,50,"Teste 1",7);
-				buttonTFT(40,150,"Teste 2",7);
-				buttonTFT(40,250,"Teste 3",7);
-				}
-			
+			//rectFillTFT(t.x,t.y,15,15,0x1F);
+			colorTestClicked(t.x, t.y);
+			int i, j;
+			for(i=0; i<65000; i++)
+				for(j=0; j<65; j++);
 		}
 	}
 }

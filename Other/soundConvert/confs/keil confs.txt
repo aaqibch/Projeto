@@ -1,0 +1,7 @@
+keil
+
+run on command
+save data.hex &word_data[0], &word_data[16000]
+
+
+define button "Save audio", "save data.hex &word_data[0], &word_data[8000]"

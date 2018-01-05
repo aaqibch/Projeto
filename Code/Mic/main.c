@@ -8,6 +8,7 @@ int main(void){
 	
 	
 	recordInit();
+	recordStart();
 	while(1){
 		
 	}
