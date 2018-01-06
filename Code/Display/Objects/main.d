@@ -17,4 +17,4 @@
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\StdPeriph_Driver\inc\stm32f4xx_rng.h
 .\objects\main.o: tft.h
 .\objects\main.o: touch.h
-.\objects\main.o: colortest.h
+.\objects\main.o: imgletters.h

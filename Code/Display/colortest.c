@@ -1,4 +1,5 @@
 #include "colortest.h"
+#include "random.h"
 
 #define BOX_SIZE 70
 #define BOX_NO 6
@@ -15,23 +16,13 @@ int selected = -1;
 uint8_t r = 0;
 uint8_t g = 0;
 
-int random(int no){
-	while(RNG_GetFlagStatus(RNG_FLAG_DRDY) == RESET);
-	uint32_t rnd = RNG_GetRandomNumber();
-	return rnd * no / 0xFFFFFFFF;
-}
-
 void shuf() {
 	int ctr = BOX_NO, index;
 	uint8_t temp;
 	
-// While there are elements in the array
 	while (ctr > 0) {
-// Pick a random index
 			index = random(ctr);
-// Decrease ctr by 1
 			ctr--;
-// And swap the last element with it
 			temp = bxs[ctr].color;
 			bxs[ctr].color = bxs[index].color;
 			bxs[index].color = temp;
@@ -78,10 +69,7 @@ int checkOrder(){
 
 
 void colorTestInit() {
-	RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE);
-	RNG_Cmd(ENABLE);
-	while(RNG_GetFlagStatus(RNG_FLAG_DRDY) == RESET);
-	RNG_GetRandomNumber();
+	randomInit();
 	
 	clearTFT(0xFFFF);
 	

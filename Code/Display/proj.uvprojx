@@ -395,11 +395,6 @@
               <FilePath>.\tft.h</FilePath>
             </File>
             <File>
-              <FileName>font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\font.h</FilePath>
-            </File>
-            <File>
               <FileName>touch.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\touch.c</FilePath>
@@ -415,11 +410,6 @@
               <FilePath>.\img.h</FilePath>
             </File>
             <File>
-              <FileName>FreeSans12pt7b.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\FreeSans12pt7b.h</FilePath>
-            </File>
-            <File>
               <FileName>colortest.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\colortest.c</FilePath>
@@ -428,6 +418,26 @@
               <FileName>colortest.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\colortest.h</FilePath>
+            </File>
+            <File>
+              <FileName>FreeSans24pt7b.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FreeSans24pt7b.h</FilePath>
+            </File>
+            <File>
+              <FileName>imgletters.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\imgletters.h</FilePath>
+            </File>
+            <File>
+              <FileName>random.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\random.c</FilePath>
+            </File>
+            <File>
+              <FileName>random.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\random.h</FilePath>
             </File>
           </Files>
         </Group>

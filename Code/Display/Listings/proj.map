@@ -6,15 +6,12 @@ Section Cross References
 
     main.o(i.main) refers to tft.o(i.initTFT) for initTFT
     main.o(i.main) refers to tft.o(i.clearTFT) for clearTFT
-    main.o(i.main) refers to touch.o(i.adcTouch) for adcTouch
-    main.o(i.main) refers to tft.o(i.buttonTFT) for buttonTFT
-    main.o(i.main) refers to tft.o(i.stringTFT) for stringTFT
-    main.o(i.main) refers to colortest.o(i.colorTestInit) for colorTestInit
-    main.o(i.main) refers to touch.o(i.getTouchZ) for getTouchZ
-    main.o(i.main) refers to touch.o(i.getTouchXY) for getTouchXY
-    main.o(i.main) refers to colortest.o(i.colorTestClicked) for colorTestClicked
+    main.o(i.main) refers to tft.o(i.loadMonoImg) for loadMonoImg
+    main.o(i.main) refers to tft.o(i.letter2TFT) for letter2TFT
+    main.o(i.main) refers to main.o(.data) for letters
+    main.o(.data) refers to main.o(.constdata) for imgletterA
     tft.o(i.buttonTFT) refers to tft.o(i.rectFillTFT) for rectFillTFT
-    tft.o(i.buttonTFT) refers to tft.o(i.stringTFT0) for stringTFT0
+    tft.o(i.buttonTFT) refers to tft.o(i.string2TFT) for string2TFT
     tft.o(i.buttonTFT) refers to tft.o(i.hLineTFT) for hLineTFT
     tft.o(i.buttonTFT) refers to tft.o(i.vLineTFT) for vLineTFT
     tft.o(i.clearTFT) refers to tft.o(i.rectFillTFT) for rectFillTFT
@@ -24,13 +21,11 @@ Section Cross References
     tft.o(i.initTFT) refers to tft.o(i.writeCommand) for writeCommand
     tft.o(i.initTFT) refers to tft.o(i.writeData) for writeData
     tft.o(i.letter2TFT) refers to tft.o(i.rectFillTFT) for rectFillTFT
-    tft.o(i.letter2TFT) refers to tft.o(.constdata) for FreeSans12pt7b
-    tft.o(i.letterTFT) refers to tft.o(i.rectFillTFT) for rectFillTFT
-    tft.o(i.letterTFT) refers to tft.o(.constdata) for font
+    tft.o(i.letter2TFT) refers to tft.o(.constdata) for FreeSans24pt7b
     tft.o(i.loadImg) refers to tft.o(i.setAdress) for setAdress
     tft.o(i.loadImg) refers to tft.o(i.writeData16) for writeData16
-    tft.o(i.loadImg) refers to tft.o(.constdata) for dalt2_img
-    tft.o(i.loadImg) refers to tft.o(.bss) for dalt2
+    tft.o(i.loadMonoImg) refers to tft.o(i.setAdress) for setAdress
+    tft.o(i.loadMonoImg) refers to tft.o(i.writeData16) for writeData16
     tft.o(i.pinWrite) refers to stm32f4xx_gpio.o(i.GPIO_WriteBit) for GPIO_WriteBit
     tft.o(i.rectFillTFT) refers to tft.o(i.setAdress) for setAdress
     tft.o(i.rectFillTFT) refers to tft.o(i.writeData16) for writeData16
@@ -40,8 +35,8 @@ Section Cross References
     tft.o(i.setAdress) refers to tft.o(i.writeData16) for writeData16
     tft.o(i.setupPinsTFT) refers to stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd) for RCC_AHB1PeriphClockCmd
     tft.o(i.setupPinsTFT) refers to stm32f4xx_gpio.o(i.GPIO_Init) for GPIO_Init
-    tft.o(i.stringTFT) refers to tft.o(i.letterTFT) for letterTFT
-    tft.o(i.stringTFT0) refers to tft.o(i.letterTFT) for letterTFT
+    tft.o(i.string2TFT) refers to tft.o(i.letter2TFT) for letter2TFT
+    tft.o(i.string2TFT) refers to tft.o(.constdata) for FreeSans24pt7b
     tft.o(i.vLineTFT) refers to tft.o(i.rectFillTFT) for rectFillTFT
     tft.o(i.writeCommand) refers to tft.o(i.writeBus) for writeBus
     tft.o(i.writeData) refers to tft.o(i.writeBus) for writeBus
@@ -73,24 +68,25 @@ Section Cross References
     colortest.o(i.colorTestClicked) refers to colortest.o(i.checkOrder) for checkOrder
     colortest.o(i.colorTestClicked) refers to colortest.o(.bss) for bxs
     colortest.o(i.colorTestClicked) refers to colortest.o(.data) for selected
-    colortest.o(i.colorTestInit) refers to stm32f4xx_rcc.o(i.RCC_AHB2PeriphClockCmd) for RCC_AHB2PeriphClockCmd
-    colortest.o(i.colorTestInit) refers to stm32f4xx_rng.o(i.RNG_Cmd) for RNG_Cmd
-    colortest.o(i.colorTestInit) refers to stm32f4xx_rng.o(i.RNG_GetFlagStatus) for RNG_GetFlagStatus
-    colortest.o(i.colorTestInit) refers to stm32f4xx_rng.o(i.RNG_GetRandomNumber) for RNG_GetRandomNumber
+    colortest.o(i.colorTestInit) refers to random.o(i.randomInit) for randomInit
     colortest.o(i.colorTestInit) refers to tft.o(i.clearTFT) for clearTFT
     colortest.o(i.colorTestInit) refers to colortest.o(i.createBoxes) for createBoxes
     colortest.o(i.colorTestInit) refers to colortest.o(i.drawBoxes) for drawBoxes
-    colortest.o(i.createBoxes) refers to colortest.o(i.random) for random
+    colortest.o(i.createBoxes) refers to random.o(i.random) for random
     colortest.o(i.createBoxes) refers to colortest.o(.data) for r
     colortest.o(i.createBoxes) refers to colortest.o(.bss) for bxs
     colortest.o(i.drawBoxes) refers to tft.o(i.RGBto565) for RGBto565
     colortest.o(i.drawBoxes) refers to tft.o(i.rectFillTFT) for rectFillTFT
     colortest.o(i.drawBoxes) refers to colortest.o(.bss) for bxs
     colortest.o(i.drawBoxes) refers to colortest.o(.data) for g
-    colortest.o(i.random) refers to stm32f4xx_rng.o(i.RNG_GetFlagStatus) for RNG_GetFlagStatus
-    colortest.o(i.random) refers to stm32f4xx_rng.o(i.RNG_GetRandomNumber) for RNG_GetRandomNumber
-    colortest.o(i.shuf) refers to colortest.o(i.random) for random
+    colortest.o(i.shuf) refers to random.o(i.random) for random
     colortest.o(i.shuf) refers to colortest.o(.bss) for bxs
+    random.o(i.random) refers to stm32f4xx_rng.o(i.RNG_GetFlagStatus) for RNG_GetFlagStatus
+    random.o(i.random) refers to stm32f4xx_rng.o(i.RNG_GetRandomNumber) for RNG_GetRandomNumber
+    random.o(i.randomInit) refers to stm32f4xx_rcc.o(i.RCC_AHB2PeriphClockCmd) for RCC_AHB2PeriphClockCmd
+    random.o(i.randomInit) refers to stm32f4xx_rng.o(i.RNG_Cmd) for RNG_Cmd
+    random.o(i.randomInit) refers to stm32f4xx_rng.o(i.RNG_GetFlagStatus) for RNG_GetFlagStatus
+    random.o(i.randomInit) refers to stm32f4xx_rng.o(i.RNG_GetRandomNumber) for RNG_GetRandomNumber
     stm32f4xx_adc.o(i.ADC_DeInit) refers to stm32f4xx_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
     stm32f4xx_gpio.o(i.GPIO_DeInit) refers to stm32f4xx_rcc.o(i.RCC_AHB1PeriphResetCmd) for RCC_AHB1PeriphResetCmd
     stm32f4xx_rcc.o(i.RCC_GetClocksFreq) refers to stm32f4xx_rcc.o(.data) for APBAHBPrescTable
@@ -220,20 +216,41 @@ Removing Unused input sections from the image.
     Removing tft.o(.rev16_text), (4 bytes).
     Removing tft.o(.revsh_text), (4 bytes).
     Removing tft.o(.rrx_text), (6 bytes).
-    Removing tft.o(i.letter2TFT), (204 bytes).
-    Removing tft.o(i.loadImg), (104 bytes).
-    Removing tft.o(i.resizeImg), (134 bytes).
-    Removing tft.o(.bss), (12 bytes).
+    Removing tft.o(i.RGBto565), (24 bytes).
+    Removing tft.o(i.buttonTFT), (114 bytes).
+    Removing tft.o(i.hLineTFT), (26 bytes).
+    Removing tft.o(i.loadImg), (76 bytes).
+    Removing tft.o(i.resizeImg), (132 bytes).
+    Removing tft.o(i.string2TFT), (84 bytes).
+    Removing tft.o(i.vLineTFT), (26 bytes).
     Removing tft.o(.data), (16 bytes).
     Removing touch.o(.rev16_text), (4 bytes).
     Removing touch.o(.revsh_text), (4 bytes).
     Removing touch.o(.rrx_text), (6 bytes).
+    Removing touch.o(i.adcTouch), (104 bytes).
+    Removing touch.o(i.anRead), (48 bytes).
+    Removing touch.o(i.defaultPins), (60 bytes).
+    Removing touch.o(i.getTouchXY), (264 bytes).
+    Removing touch.o(i.getTouchZ), (136 bytes).
     Removing touch.o(i.inBox), (36 bytes).
     Removing touch.o(i.isTouch), (18 bytes).
+    Removing touch.o(i.pinMode), (40 bytes).
     Removing colortest.o(.rev16_text), (4 bytes).
     Removing colortest.o(.revsh_text), (4 bytes).
     Removing colortest.o(.rrx_text), (6 bytes).
+    Removing colortest.o(i.checkOrder), (60 bytes).
+    Removing colortest.o(i.colorTestClicked), (348 bytes).
+    Removing colortest.o(i.colorTestInit), (24 bytes).
+    Removing colortest.o(i.createBoxes), (96 bytes).
+    Removing colortest.o(i.drawBoxes), (84 bytes).
     Removing colortest.o(i.shuf), (72 bytes).
+    Removing colortest.o(.bss), (36 bytes).
+    Removing colortest.o(.data), (6 bytes).
+    Removing random.o(.rev16_text), (4 bytes).
+    Removing random.o(.revsh_text), (4 bytes).
+    Removing random.o(.rrx_text), (6 bytes).
+    Removing random.o(i.random), (36 bytes).
+    Removing random.o(i.randomInit), (34 bytes).
     Removing misc.o(.rev16_text), (4 bytes).
     Removing misc.o(.revsh_text), (4 bytes).
     Removing misc.o(.rrx_text), (6 bytes).
@@ -251,6 +268,8 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_adc.o(i.ADC_AutoInjectedConvCmd), (22 bytes).
     Removing stm32f4xx_adc.o(i.ADC_ClearFlag), (6 bytes).
     Removing stm32f4xx_adc.o(i.ADC_ClearITPendingBit), (10 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_Cmd), (22 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_CommonInit), (48 bytes).
     Removing stm32f4xx_adc.o(i.ADC_CommonStructInit), (12 bytes).
     Removing stm32f4xx_adc.o(i.ADC_ContinuousModeCmd), (22 bytes).
     Removing stm32f4xx_adc.o(i.ADC_DMACmd), (22 bytes).
@@ -261,17 +280,22 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_adc.o(i.ADC_EOCOnEachRegularChannelCmd), (22 bytes).
     Removing stm32f4xx_adc.o(i.ADC_ExternalTrigInjectedConvConfig), (16 bytes).
     Removing stm32f4xx_adc.o(i.ADC_ExternalTrigInjectedConvEdgeConfig), (16 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_GetConversionValue), (8 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_GetFlagStatus), (18 bytes).
     Removing stm32f4xx_adc.o(i.ADC_GetITStatus), (38 bytes).
     Removing stm32f4xx_adc.o(i.ADC_GetInjectedConversionValue), (28 bytes).
     Removing stm32f4xx_adc.o(i.ADC_GetMultiModeConversionValue), (12 bytes).
     Removing stm32f4xx_adc.o(i.ADC_GetSoftwareStartConvStatus), (20 bytes).
     Removing stm32f4xx_adc.o(i.ADC_GetSoftwareStartInjectedConvCmdStatus), (20 bytes).
     Removing stm32f4xx_adc.o(i.ADC_ITConfig), (32 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_Init), (84 bytes).
     Removing stm32f4xx_adc.o(i.ADC_InjectedChannelConfig), (130 bytes).
     Removing stm32f4xx_adc.o(i.ADC_InjectedDiscModeCmd), (22 bytes).
     Removing stm32f4xx_adc.o(i.ADC_InjectedSequencerLengthConfig), (24 bytes).
     Removing stm32f4xx_adc.o(i.ADC_MultiModeDMARequestAfterLastTransferCmd), (44 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_RegularChannelConfig), (184 bytes).
     Removing stm32f4xx_adc.o(i.ADC_SetInjectedOffset), (20 bytes).
+    Removing stm32f4xx_adc.o(i.ADC_SoftwareStartConv), (10 bytes).
     Removing stm32f4xx_adc.o(i.ADC_SoftwareStartInjectedConv), (10 bytes).
     Removing stm32f4xx_adc.o(i.ADC_StructInit), (20 bytes).
     Removing stm32f4xx_adc.o(i.ADC_TempSensorVrefintCmd), (44 bytes).
@@ -307,6 +331,7 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_rcc.o(.rrx_text), (6 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockLPModeCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_AHB1PeriphResetCmd), (32 bytes).
+    Removing stm32f4xx_rcc.o(i.RCC_AHB2PeriphClockCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_AHB2PeriphClockLPModeCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_AHB2PeriphResetCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_AHB3PeriphClockCmd), (32 bytes).
@@ -315,6 +340,7 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_rcc.o(i.RCC_APB1PeriphClockCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_APB1PeriphClockLPModeCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_APB1PeriphResetCmd), (32 bytes).
+    Removing stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_APB2PeriphClockLPModeCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_APB2PeriphResetCmd), (32 bytes).
     Removing stm32f4xx_rcc.o(i.RCC_AdjustHSICalibrationValue), (24 bytes).
@@ -360,8 +386,11 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_rng.o(.rrx_text), (6 bytes).
     Removing stm32f4xx_rng.o(i.RNG_ClearFlag), (16 bytes).
     Removing stm32f4xx_rng.o(i.RNG_ClearITPendingBit), (16 bytes).
+    Removing stm32f4xx_rng.o(i.RNG_Cmd), (36 bytes).
     Removing stm32f4xx_rng.o(i.RNG_DeInit), (20 bytes).
+    Removing stm32f4xx_rng.o(i.RNG_GetFlagStatus), (24 bytes).
     Removing stm32f4xx_rng.o(i.RNG_GetITStatus), (24 bytes).
+    Removing stm32f4xx_rng.o(i.RNG_GetRandomNumber), (12 bytes).
     Removing stm32f4xx_rng.o(i.RNG_ITConfig), (36 bytes).
     Removing stm32f4xx_syscfg.o(.rev16_text), (4 bytes).
     Removing stm32f4xx_syscfg.o(.revsh_text), (4 bytes).
@@ -379,7 +408,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f4xx.o(i.SystemCoreClockUpdate), (192 bytes).
     Removing system_stm32f4xx.o(.data), (20 bytes).
 
-164 unused section(s) (total 4636 bytes) removed from the image.
+197 unused section(s) (total 6564 bytes) removed from the image.
 
 ==============================================================================
 
@@ -389,51 +418,51 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
@@ -459,6 +488,8 @@ Image Symbol Table
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    random.c                                 0x00000000   Number         0  random.o ABSOLUTE
+    random.c                                 0x00000000   Number         0  random.o ABSOLUTE
     tft.c                                    0x00000000   Number         0  tft.o ABSOLUTE
     tft.c                                    0x00000000   Number         0  tft.o ABSOLUTE
     touch.c                                  0x00000000   Number         0  touch.o ABSOLUTE
@@ -518,66 +549,36 @@ Image Symbol Table
     .text                                    0x080002d4   Section        0  sys_exit.o(.text)
     .text                                    0x080002e0   Section        2  use_no_semi.o(.text)
     .text                                    0x080002e2   Section        0  indicate_semi.o(.text)
-    i.ADC_Cmd                                0x080002e2   Section        0  stm32f4xx_adc.o(i.ADC_Cmd)
-    i.ADC_CommonInit                         0x080002f8   Section        0  stm32f4xx_adc.o(i.ADC_CommonInit)
-    i.ADC_GetConversionValue                 0x08000328   Section        0  stm32f4xx_adc.o(i.ADC_GetConversionValue)
-    i.ADC_GetFlagStatus                      0x08000330   Section        0  stm32f4xx_adc.o(i.ADC_GetFlagStatus)
-    i.ADC_Init                               0x08000344   Section        0  stm32f4xx_adc.o(i.ADC_Init)
-    i.ADC_RegularChannelConfig               0x08000398   Section        0  stm32f4xx_adc.o(i.ADC_RegularChannelConfig)
-    i.ADC_SoftwareStartConv                  0x08000450   Section        0  stm32f4xx_adc.o(i.ADC_SoftwareStartConv)
-    i.GPIO_Init                              0x0800045a   Section        0  stm32f4xx_gpio.o(i.GPIO_Init)
-    i.GPIO_WriteBit                          0x080004ea   Section        0  stm32f4xx_gpio.o(i.GPIO_WriteBit)
-    i.RCC_AHB1PeriphClockCmd                 0x080004f4   Section        0  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
-    i.RCC_AHB2PeriphClockCmd                 0x08000514   Section        0  stm32f4xx_rcc.o(i.RCC_AHB2PeriphClockCmd)
-    i.RCC_APB2PeriphClockCmd                 0x08000534   Section        0  stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd)
-    i.RGBto565                               0x08000554   Section        0  tft.o(i.RGBto565)
-    i.RNG_Cmd                                0x0800056c   Section        0  stm32f4xx_rng.o(i.RNG_Cmd)
-    i.RNG_GetFlagStatus                      0x08000590   Section        0  stm32f4xx_rng.o(i.RNG_GetFlagStatus)
-    i.RNG_GetRandomNumber                    0x080005a8   Section        0  stm32f4xx_rng.o(i.RNG_GetRandomNumber)
-    i.SetSysClock                            0x080005b4   Section        0  system_stm32f4xx.o(i.SetSysClock)
-    SetSysClock                              0x080005b5   Thumb Code   220  system_stm32f4xx.o(i.SetSysClock)
-    i.SystemInit                             0x080006a0   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.adcTouch                               0x08000708   Section        0  touch.o(i.adcTouch)
-    i.anRead                                 0x08000770   Section        0  touch.o(i.anRead)
-    i.buttonTFT                              0x080007a0   Section        0  tft.o(i.buttonTFT)
-    i.checkOrder                             0x08000818   Section        0  colortest.o(i.checkOrder)
-    i.clearTFT                               0x08000854   Section        0  tft.o(i.clearTFT)
-    i.colorTestClicked                       0x0800086c   Section        0  colortest.o(i.colorTestClicked)
-    i.colorTestInit                          0x080009c8   Section        0  colortest.o(i.colorTestInit)
-    i.createBoxes                            0x080009fc   Section        0  colortest.o(i.createBoxes)
-    i.defaultPins                            0x08000a5c   Section        0  touch.o(i.defaultPins)
-    i.drawBoxes                              0x08000a98   Section        0  colortest.o(i.drawBoxes)
-    i.getTouchXY                             0x08000aec   Section        0  touch.o(i.getTouchXY)
-    i.getTouchZ                              0x08000bf4   Section        0  touch.o(i.getTouchZ)
-    i.hLineTFT                               0x08000c7c   Section        0  tft.o(i.hLineTFT)
-    i.initTFT                                0x08000c98   Section        0  tft.o(i.initTFT)
-    i.letterTFT                              0x08000d88   Section        0  tft.o(i.letterTFT)
-    i.main                                   0x08000de0   Section        0  main.o(i.main)
-    i.pinMode                                0x08000e60   Section        0  touch.o(i.pinMode)
-    i.pinWrite                               0x08000e88   Section        0  tft.o(i.pinWrite)
-    i.random                                 0x08000ea0   Section        0  colortest.o(i.random)
-    i.rectFillTFT                            0x08000ec4   Section        0  tft.o(i.rectFillTFT)
-    i.setAdress                              0x08000f0e   Section        0  tft.o(i.setAdress)
-    i.setupPinsTFT                           0x08000f44   Section        0  tft.o(i.setupPinsTFT)
-    i.stringTFT                              0x08000f90   Section        0  tft.o(i.stringTFT)
-    i.stringTFT0                             0x08000fc8   Section        0  tft.o(i.stringTFT0)
-    i.vLineTFT                               0x08001004   Section        0  tft.o(i.vLineTFT)
-    i.writeBus                               0x08001020   Section        0  tft.o(i.writeBus)
-    i.writeCommand                           0x08001040   Section        0  tft.o(i.writeCommand)
-    i.writeData                              0x08001058   Section        0  tft.o(i.writeData)
-    i.writeData16                            0x08001070   Section        0  tft.o(i.writeData16)
-    x$fpl$fpinit                             0x08001082   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x08001082   Number         0  fpinit.o(x$fpl$fpinit)
-    .constdata                               0x0800108c   Section    206272  tft.o(.constdata)
-    font                                     0x0800108c   Data        1280  tft.o(.constdata)
-    .data                                    0x20000000   Section        6  colortest.o(.data)
-    .bss                                     0x20000008   Section       36  colortest.o(.bss)
-    .bss                                     0x2000002c   Section       96  libspace.o(.bss)
-    HEAP                                     0x20000090   Section      512  startup_stm32f40_41xxx.o(HEAP)
-    Heap_Mem                                 0x20000090   Data         512  startup_stm32f40_41xxx.o(HEAP)
-    STACK                                    0x20000290   Section     1024  startup_stm32f40_41xxx.o(STACK)
-    Stack_Mem                                0x20000290   Data        1024  startup_stm32f40_41xxx.o(STACK)
-    __initial_sp                             0x20000690   Data           0  startup_stm32f40_41xxx.o(STACK)
+    i.GPIO_Init                              0x080002e2   Section        0  stm32f4xx_gpio.o(i.GPIO_Init)
+    i.GPIO_WriteBit                          0x08000372   Section        0  stm32f4xx_gpio.o(i.GPIO_WriteBit)
+    i.RCC_AHB1PeriphClockCmd                 0x0800037c   Section        0  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
+    i.SetSysClock                            0x0800039c   Section        0  system_stm32f4xx.o(i.SetSysClock)
+    SetSysClock                              0x0800039d   Thumb Code   220  system_stm32f4xx.o(i.SetSysClock)
+    i.SystemInit                             0x08000488   Section        0  system_stm32f4xx.o(i.SystemInit)
+    i.clearTFT                               0x080004f0   Section        0  tft.o(i.clearTFT)
+    i.initTFT                                0x08000508   Section        0  tft.o(i.initTFT)
+    i.letter2TFT                             0x080005f8   Section        0  tft.o(i.letter2TFT)
+    i.loadMonoImg                            0x080006d4   Section        0  tft.o(i.loadMonoImg)
+    i.main                                   0x08000748   Section        0  main.o(i.main)
+    i.pinWrite                               0x080007bc   Section        0  tft.o(i.pinWrite)
+    i.rectFillTFT                            0x080007d4   Section        0  tft.o(i.rectFillTFT)
+    i.setAdress                              0x0800081e   Section        0  tft.o(i.setAdress)
+    i.setupPinsTFT                           0x08000854   Section        0  tft.o(i.setupPinsTFT)
+    i.writeBus                               0x080008a0   Section        0  tft.o(i.writeBus)
+    i.writeCommand                           0x080008c0   Section        0  tft.o(i.writeCommand)
+    i.writeData                              0x080008d8   Section        0  tft.o(i.writeData)
+    i.writeData16                            0x080008f0   Section        0  tft.o(i.writeData16)
+    x$fpl$fpinit                             0x08000902   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x08000902   Number         0  fpinit.o(x$fpl$fpinit)
+    .constdata                               0x0800090c   Section    14280  main.o(.constdata)
+    .constdata                               0x080040d4   Section     8236  tft.o(.constdata)
+    .data                                    0x20000000   Section       32  main.o(.data)
+    .bss                                     0x20000020   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000080   Section      512  startup_stm32f40_41xxx.o(HEAP)
+    Heap_Mem                                 0x20000080   Data         512  startup_stm32f40_41xxx.o(HEAP)
+    STACK                                    0x20000280   Section     1024  startup_stm32f40_41xxx.o(STACK)
+    Stack_Mem                                0x20000280   Data        1024  startup_stm32f40_41xxx.o(STACK)
+    __initial_sp                             0x20000680   Data           0  startup_stm32f40_41xxx.o(STACK)
 
     Global Symbols
 
@@ -768,68 +769,39 @@ Image Symbol Table
     _sys_exit                                0x080002d5   Thumb Code     8  sys_exit.o(.text)
     __I$use$semihosting                      0x080002e1   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x080002e1   Thumb Code     2  use_no_semi.o(.text)
-    ADC_Cmd                                  0x080002e3   Thumb Code    22  stm32f4xx_adc.o(i.ADC_Cmd)
+    GPIO_Init                                0x080002e3   Thumb Code   144  stm32f4xx_gpio.o(i.GPIO_Init)
     __semihosting_library_function           0x080002e3   Thumb Code     0  indicate_semi.o(.text)
-    ADC_CommonInit                           0x080002f9   Thumb Code    34  stm32f4xx_adc.o(i.ADC_CommonInit)
-    ADC_GetConversionValue                   0x08000329   Thumb Code     8  stm32f4xx_adc.o(i.ADC_GetConversionValue)
-    ADC_GetFlagStatus                        0x08000331   Thumb Code    18  stm32f4xx_adc.o(i.ADC_GetFlagStatus)
-    ADC_Init                                 0x08000345   Thumb Code    74  stm32f4xx_adc.o(i.ADC_Init)
-    ADC_RegularChannelConfig                 0x08000399   Thumb Code   184  stm32f4xx_adc.o(i.ADC_RegularChannelConfig)
-    ADC_SoftwareStartConv                    0x08000451   Thumb Code    10  stm32f4xx_adc.o(i.ADC_SoftwareStartConv)
-    GPIO_Init                                0x0800045b   Thumb Code   144  stm32f4xx_gpio.o(i.GPIO_Init)
-    GPIO_WriteBit                            0x080004eb   Thumb Code    10  stm32f4xx_gpio.o(i.GPIO_WriteBit)
-    RCC_AHB1PeriphClockCmd                   0x080004f5   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
-    RCC_AHB2PeriphClockCmd                   0x08000515   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB2PeriphClockCmd)
-    RCC_APB2PeriphClockCmd                   0x08000535   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd)
-    RGBto565                                 0x08000555   Thumb Code    24  tft.o(i.RGBto565)
-    RNG_Cmd                                  0x0800056d   Thumb Code    30  stm32f4xx_rng.o(i.RNG_Cmd)
-    RNG_GetFlagStatus                        0x08000591   Thumb Code    20  stm32f4xx_rng.o(i.RNG_GetFlagStatus)
-    RNG_GetRandomNumber                      0x080005a9   Thumb Code     6  stm32f4xx_rng.o(i.RNG_GetRandomNumber)
-    SystemInit                               0x080006a1   Thumb Code    88  system_stm32f4xx.o(i.SystemInit)
-    adcTouch                                 0x08000709   Thumb Code   100  touch.o(i.adcTouch)
-    anRead                                   0x08000771   Thumb Code    44  touch.o(i.anRead)
-    buttonTFT                                0x080007a1   Thumb Code   118  tft.o(i.buttonTFT)
-    checkOrder                               0x08000819   Thumb Code    56  colortest.o(i.checkOrder)
-    clearTFT                                 0x08000855   Thumb Code    24  tft.o(i.clearTFT)
-    colorTestClicked                         0x0800086d   Thumb Code   340  colortest.o(i.colorTestClicked)
-    colorTestInit                            0x080009c9   Thumb Code    50  colortest.o(i.colorTestInit)
-    createBoxes                              0x080009fd   Thumb Code    84  colortest.o(i.createBoxes)
-    defaultPins                              0x08000a5d   Thumb Code    52  touch.o(i.defaultPins)
-    drawBoxes                                0x08000a99   Thumb Code    70  colortest.o(i.drawBoxes)
-    getTouchXY                               0x08000aed   Thumb Code   256  touch.o(i.getTouchXY)
-    getTouchZ                                0x08000bf5   Thumb Code   128  touch.o(i.getTouchZ)
-    hLineTFT                                 0x08000c7d   Thumb Code    26  tft.o(i.hLineTFT)
-    initTFT                                  0x08000c99   Thumb Code   236  tft.o(i.initTFT)
-    letterTFT                                0x08000d89   Thumb Code    84  tft.o(i.letterTFT)
-    main                                     0x08000de1   Thumb Code   118  main.o(i.main)
-    pinMode                                  0x08000e61   Thumb Code    40  touch.o(i.pinMode)
-    pinWrite                                 0x08000e89   Thumb Code    18  tft.o(i.pinWrite)
-    random                                   0x08000ea1   Thumb Code    36  colortest.o(i.random)
-    rectFillTFT                              0x08000ec5   Thumb Code    74  tft.o(i.rectFillTFT)
-    setAdress                                0x08000f0f   Thumb Code    54  tft.o(i.setAdress)
-    setupPinsTFT                             0x08000f45   Thumb Code    68  tft.o(i.setupPinsTFT)
-    stringTFT                                0x08000f91   Thumb Code    56  tft.o(i.stringTFT)
-    stringTFT0                               0x08000fc9   Thumb Code    60  tft.o(i.stringTFT0)
-    vLineTFT                                 0x08001005   Thumb Code    26  tft.o(i.vLineTFT)
-    writeBus                                 0x08001021   Thumb Code    22  tft.o(i.writeBus)
-    writeCommand                             0x08001041   Thumb Code    18  tft.o(i.writeCommand)
-    writeData                                0x08001059   Thumb Code    18  tft.o(i.writeData)
-    writeData16                              0x08001071   Thumb Code    18  tft.o(i.writeData16)
-    _fp_init                                 0x08001083   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x0800108b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x0800108b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    dalt2_img                                0x0800158c   Data       202248  tft.o(.constdata)
-    FreeSans12pt7bBitmaps                    0x08032b94   Data        1969  tft.o(.constdata)
-    FreeSans12pt7bGlyphs                     0x08033346   Data         760  tft.o(.constdata)
-    FreeSans12pt7b                           0x08033640   Data          12  tft.o(.constdata)
-    Region$$Table$$Base                      0x0803364c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0803366c   Number         0  anon$$obj.o(Region$$Table)
-    selected                                 0x20000000   Data           4  colortest.o(.data)
-    r                                        0x20000004   Data           1  colortest.o(.data)
-    g                                        0x20000005   Data           1  colortest.o(.data)
-    bxs                                      0x20000008   Data          36  colortest.o(.bss)
-    __libspace_start                         0x2000002c   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x2000008c   Data           0  libspace.o(.bss)
+    GPIO_WriteBit                            0x08000373   Thumb Code    10  stm32f4xx_gpio.o(i.GPIO_WriteBit)
+    RCC_AHB1PeriphClockCmd                   0x0800037d   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
+    SystemInit                               0x08000489   Thumb Code    88  system_stm32f4xx.o(i.SystemInit)
+    clearTFT                                 0x080004f1   Thumb Code    24  tft.o(i.clearTFT)
+    initTFT                                  0x08000509   Thumb Code   236  tft.o(i.initTFT)
+    letter2TFT                               0x080005f9   Thumb Code   208  tft.o(i.letter2TFT)
+    loadMonoImg                              0x080006d5   Thumb Code   114  tft.o(i.loadMonoImg)
+    main                                     0x08000749   Thumb Code   112  main.o(i.main)
+    pinWrite                                 0x080007bd   Thumb Code    18  tft.o(i.pinWrite)
+    rectFillTFT                              0x080007d5   Thumb Code    74  tft.o(i.rectFillTFT)
+    setAdress                                0x0800081f   Thumb Code    54  tft.o(i.setAdress)
+    setupPinsTFT                             0x08000855   Thumb Code    68  tft.o(i.setupPinsTFT)
+    writeBus                                 0x080008a1   Thumb Code    22  tft.o(i.writeBus)
+    writeCommand                             0x080008c1   Thumb Code    18  tft.o(i.writeCommand)
+    writeData                                0x080008d9   Thumb Code    18  tft.o(i.writeData)
+    writeData16                              0x080008f1   Thumb Code    18  tft.o(i.writeData16)
+    _fp_init                                 0x08000903   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x0800090b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x0800090b   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    imgletterA                               0x0800090c   Data        3540  main.o(.constdata)
+    imgletterE                               0x080016e0   Data        3540  main.o(.constdata)
+    imgletterI                               0x080024b4   Data        3580  main.o(.constdata)
+    imgletterX                               0x080032b0   Data        3620  main.o(.constdata)
+    FreeSans24pt7bBitmaps                    0x080040d4   Data        7464  tft.o(.constdata)
+    FreeSans24pt7bGlyphs                     0x08005dfc   Data         760  tft.o(.constdata)
+    FreeSans24pt7b                           0x080060f4   Data          12  tft.o(.constdata)
+    Region$$Table$$Base                      0x08006100   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08006120   Number         0  anon$$obj.o(Region$$Table)
+    letters                                  0x20000000   Data          32  main.o(.data)
+    __libspace_start                         0x20000020   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000080   Data           0  libspace.o(.bss)
 
 
 
@@ -839,142 +811,108 @@ Memory Map of the image
 
   Image Entry point : 0x08000229
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00033674, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00006140, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x08000000, Size: 0x0003366c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x08000000, Size: 0x00006120, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x00000188   Data   RO         1286    RESET               startup_stm32f40_41xxx.o
-    0x08000188   0x00000008   Code   RO         1336  * !!!main             c_w.l(__main.o)
-    0x08000190   0x00000034   Code   RO         1493    !!!scatter          c_w.l(__scatter.o)
-    0x080001c4   0x0000001a   Code   RO         1495    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x00000188   Data   RO         1309    RESET               startup_stm32f40_41xxx.o
+    0x08000188   0x00000008   Code   RO         1359  * !!!main             c_w.l(__main.o)
+    0x08000190   0x00000034   Code   RO         1516    !!!scatter          c_w.l(__scatter.o)
+    0x080001c4   0x0000001a   Code   RO         1518    !!handler_copy      c_w.l(__scatter_copy.o)
     0x080001de   0x00000002   PAD
-    0x080001e0   0x0000001c   Code   RO         1497    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x080001fc   0x00000002   Code   RO         1363    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x080001fe   0x00000004   Code   RO         1369    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1372    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1375    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1377    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1379    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1382    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1384    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1386    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1388    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1390    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1392    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1394    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1396    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1398    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1400    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1402    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1406    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1408    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1410    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x08000202   0x00000000   Code   RO         1412    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x08000202   0x00000002   Code   RO         1413    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x08000204   0x00000002   Code   RO         1433    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000206   0x00000000   Code   RO         1446    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x08000206   0x00000000   Code   RO         1448    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x08000206   0x00000000   Code   RO         1451    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x08000206   0x00000000   Code   RO         1454    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x08000206   0x00000000   Code   RO         1456    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x08000206   0x00000000   Code   RO         1459    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x08000206   0x00000002   Code   RO         1460    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x08000208   0x00000000   Code   RO         1338    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x08000208   0x00000000   Code   RO         1340    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x08000208   0x00000006   Code   RO         1352    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0800020e   0x00000000   Code   RO         1342    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0800020e   0x00000004   Code   RO         1343    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x08000212   0x00000000   Code   RO         1345    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x08000212   0x00000008   Code   RO         1346    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0800021a   0x00000002   Code   RO         1367    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0800021c   0x00000000   Code   RO         1415    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0800021c   0x00000004   Code   RO         1416    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000220   0x00000006   Code   RO         1417    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x080001e0   0x0000001c   Code   RO         1520    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x080001fc   0x00000002   Code   RO         1386    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x080001fe   0x00000004   Code   RO         1392    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1395    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1398    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1400    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1402    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1405    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1407    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1409    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1411    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1413    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1415    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1417    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1419    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1421    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1423    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1425    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1429    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1431    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1433    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x08000202   0x00000000   Code   RO         1435    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x08000202   0x00000002   Code   RO         1436    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x08000204   0x00000002   Code   RO         1456    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000206   0x00000000   Code   RO         1469    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x08000206   0x00000000   Code   RO         1471    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x08000206   0x00000000   Code   RO         1474    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x08000206   0x00000000   Code   RO         1477    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x08000206   0x00000000   Code   RO         1479    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x08000206   0x00000000   Code   RO         1482    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000206   0x00000002   Code   RO         1483    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x08000208   0x00000000   Code   RO         1361    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000208   0x00000000   Code   RO         1363    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000208   0x00000006   Code   RO         1375    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0800020e   0x00000000   Code   RO         1365    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0800020e   0x00000004   Code   RO         1366    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000212   0x00000000   Code   RO         1368    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000212   0x00000008   Code   RO         1369    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0800021a   0x00000002   Code   RO         1390    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0800021c   0x00000000   Code   RO         1438    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0800021c   0x00000004   Code   RO         1439    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000220   0x00000006   Code   RO         1440    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x08000226   0x00000002   PAD
-    0x08000228   0x00000040   Code   RO         1287  * .text               startup_stm32f40_41xxx.o
-    0x08000268   0x00000006   Code   RO         1334    .text               c_w.l(heapauxi.o)
-    0x0800026e   0x0000004a   Code   RO         1354    .text               c_w.l(sys_stackheap_outer.o)
-    0x080002b8   0x00000012   Code   RO         1356    .text               c_w.l(exit.o)
+    0x08000228   0x00000040   Code   RO         1310  * .text               startup_stm32f40_41xxx.o
+    0x08000268   0x00000006   Code   RO         1357    .text               c_w.l(heapauxi.o)
+    0x0800026e   0x0000004a   Code   RO         1377    .text               c_w.l(sys_stackheap_outer.o)
+    0x080002b8   0x00000012   Code   RO         1379    .text               c_w.l(exit.o)
     0x080002ca   0x00000002   PAD
-    0x080002cc   0x00000008   Code   RO         1364    .text               c_w.l(libspace.o)
-    0x080002d4   0x0000000c   Code   RO         1425    .text               c_w.l(sys_exit.o)
-    0x080002e0   0x00000002   Code   RO         1436    .text               c_w.l(use_no_semi.o)
-    0x080002e2   0x00000000   Code   RO         1438    .text               c_w.l(indicate_semi.o)
-    0x080002e2   0x00000016   Code   RO          421    i.ADC_Cmd           stm32f4xx_adc.o
-    0x080002f8   0x00000030   Code   RO          422    i.ADC_CommonInit    stm32f4xx_adc.o
-    0x08000328   0x00000008   Code   RO          433    i.ADC_GetConversionValue  stm32f4xx_adc.o
-    0x08000330   0x00000012   Code   RO          434    i.ADC_GetFlagStatus  stm32f4xx_adc.o
-    0x08000342   0x00000002   PAD
-    0x08000344   0x00000054   Code   RO          441    i.ADC_Init          stm32f4xx_adc.o
-    0x08000398   0x000000b8   Code   RO          446    i.ADC_RegularChannelConfig  stm32f4xx_adc.o
-    0x08000450   0x0000000a   Code   RO          448    i.ADC_SoftwareStartConv  stm32f4xx_adc.o
-    0x0800045a   0x00000090   Code   RO          728    i.GPIO_Init         stm32f4xx_gpio.o
-    0x080004ea   0x0000000a   Code   RO          740    i.GPIO_WriteBit     stm32f4xx_gpio.o
-    0x080004f4   0x00000020   Code   RO          829    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
-    0x08000514   0x00000020   Code   RO          832    i.RCC_AHB2PeriphClockCmd  stm32f4xx_rcc.o
-    0x08000534   0x00000020   Code   RO          841    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc.o
-    0x08000554   0x00000018   Code   RO           87    i.RGBto565          tft.o
-    0x0800056c   0x00000024   Code   RO         1163    i.RNG_Cmd           stm32f4xx_rng.o
-    0x08000590   0x00000018   Code   RO         1165    i.RNG_GetFlagStatus  stm32f4xx_rng.o
-    0x080005a8   0x0000000c   Code   RO         1167    i.RNG_GetRandomNumber  stm32f4xx_rng.o
-    0x080005b4   0x000000ec   Code   RO         1294    i.SetSysClock       system_stm32f4xx.o
-    0x080006a0   0x00000068   Code   RO         1296    i.SystemInit        system_stm32f4xx.o
-    0x08000708   0x00000068   Code   RO          237    i.adcTouch          touch.o
-    0x08000770   0x00000030   Code   RO          238    i.anRead            touch.o
-    0x080007a0   0x00000076   Code   RO           88    i.buttonTFT         tft.o
-    0x08000816   0x00000002   PAD
-    0x08000818   0x0000003c   Code   RO          303    i.checkOrder        colortest.o
-    0x08000854   0x00000018   Code   RO           89    i.clearTFT          tft.o
-    0x0800086c   0x0000015c   Code   RO          304    i.colorTestClicked  colortest.o
-    0x080009c8   0x00000032   Code   RO          305    i.colorTestInit     colortest.o
-    0x080009fa   0x00000002   PAD
-    0x080009fc   0x00000060   Code   RO          306    i.createBoxes       colortest.o
-    0x08000a5c   0x0000003c   Code   RO          239    i.defaultPins       touch.o
-    0x08000a98   0x00000054   Code   RO          307    i.drawBoxes         colortest.o
-    0x08000aec   0x00000108   Code   RO          240    i.getTouchXY        touch.o
-    0x08000bf4   0x00000088   Code   RO          241    i.getTouchZ         touch.o
-    0x08000c7c   0x0000001a   Code   RO           90    i.hLineTFT          tft.o
-    0x08000c96   0x00000002   PAD
-    0x08000c98   0x000000f0   Code   RO           91    i.initTFT           tft.o
-    0x08000d88   0x00000058   Code   RO           93    i.letterTFT         tft.o
-    0x08000de0   0x00000080   Code   RO            4    i.main              main.o
-    0x08000e60   0x00000028   Code   RO          244    i.pinMode           touch.o
-    0x08000e88   0x00000018   Code   RO           95    i.pinWrite          tft.o
-    0x08000ea0   0x00000024   Code   RO          308    i.random            colortest.o
-    0x08000ec4   0x0000004a   Code   RO           96    i.rectFillTFT       tft.o
-    0x08000f0e   0x00000036   Code   RO           98    i.setAdress         tft.o
-    0x08000f44   0x0000004c   Code   RO           99    i.setupPinsTFT      tft.o
-    0x08000f90   0x00000038   Code   RO          100    i.stringTFT         tft.o
-    0x08000fc8   0x0000003c   Code   RO          101    i.stringTFT0        tft.o
-    0x08001004   0x0000001a   Code   RO          102    i.vLineTFT          tft.o
-    0x0800101e   0x00000002   PAD
-    0x08001020   0x00000020   Code   RO          103    i.writeBus          tft.o
-    0x08001040   0x00000018   Code   RO          104    i.writeCommand      tft.o
-    0x08001058   0x00000018   Code   RO          105    i.writeData         tft.o
-    0x08001070   0x00000012   Code   RO          106    i.writeData16       tft.o
-    0x08001082   0x0000000a   Code   RO         1423    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x0800108c   0x000325c0   Data   RO          108    .constdata          tft.o
-    0x0803364c   0x00000020   Data   RO         1491    Region$$Table       anon$$obj.o
+    0x080002cc   0x00000008   Code   RO         1387    .text               c_w.l(libspace.o)
+    0x080002d4   0x0000000c   Code   RO         1448    .text               c_w.l(sys_exit.o)
+    0x080002e0   0x00000002   Code   RO         1459    .text               c_w.l(use_no_semi.o)
+    0x080002e2   0x00000000   Code   RO         1461    .text               c_w.l(indicate_semi.o)
+    0x080002e2   0x00000090   Code   RO          751    i.GPIO_Init         stm32f4xx_gpio.o
+    0x08000372   0x0000000a   Code   RO          763    i.GPIO_WriteBit     stm32f4xx_gpio.o
+    0x0800037c   0x00000020   Code   RO          852    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
+    0x0800039c   0x000000ec   Code   RO         1317    i.SetSysClock       system_stm32f4xx.o
+    0x08000488   0x00000068   Code   RO         1319    i.SystemInit        system_stm32f4xx.o
+    0x080004f0   0x00000018   Code   RO           93    i.clearTFT          tft.o
+    0x08000508   0x000000f0   Code   RO           95    i.initTFT           tft.o
+    0x080005f8   0x000000dc   Code   RO           96    i.letter2TFT        tft.o
+    0x080006d4   0x00000072   Code   RO           98    i.loadMonoImg       tft.o
+    0x08000746   0x00000002   PAD
+    0x08000748   0x00000074   Code   RO            4    i.main              main.o
+    0x080007bc   0x00000018   Code   RO           99    i.pinWrite          tft.o
+    0x080007d4   0x0000004a   Code   RO          100    i.rectFillTFT       tft.o
+    0x0800081e   0x00000036   Code   RO          102    i.setAdress         tft.o
+    0x08000854   0x0000004c   Code   RO          103    i.setupPinsTFT      tft.o
+    0x080008a0   0x00000020   Code   RO          106    i.writeBus          tft.o
+    0x080008c0   0x00000018   Code   RO          107    i.writeCommand      tft.o
+    0x080008d8   0x00000018   Code   RO          108    i.writeData         tft.o
+    0x080008f0   0x00000012   Code   RO          109    i.writeData16       tft.o
+    0x08000902   0x0000000a   Code   RO         1446    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x0800090c   0x000037c8   Data   RO            5    .constdata          main.o
+    0x080040d4   0x0000202c   Data   RO          110    .constdata          tft.o
+    0x08006100   0x00000020   Data   RO         1514    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000008, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000020, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000006   Data   RW          311    .data               colortest.o
+    0x20000000   0x00000020   Data   RW            6    .data               main.o
 
 
-    Execution Region ER_ZI (Base: 0x20000008, Size: 0x00000688, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Base: 0x20000020, Size: 0x00000660, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008   0x00000024   Zero   RW          310    .bss                colortest.o
-    0x2000002c   0x00000060   Zero   RW         1365    .bss                c_w.l(libspace.o)
-    0x2000008c   0x00000004   PAD
-    0x20000090   0x00000200   Zero   RW         1285    HEAP                startup_stm32f40_41xxx.o
-    0x20000290   0x00000400   Zero   RW         1284    STACK               startup_stm32f40_41xxx.o
+    0x20000020   0x00000060   Zero   RW         1388    .bss                c_w.l(libspace.o)
+    0x20000080   0x00000200   Zero   RW         1308    HEAP                startup_stm32f40_41xxx.o
+    0x20000280   0x00000400   Zero   RW         1307    STACK               startup_stm32f40_41xxx.o
 
 
 ==============================================================================
@@ -984,21 +922,17 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       674         38          0          6         36       4062   colortest.o
-       128         10          0          0          0     271775   main.o
+       116          4      14280         32          0     258173   main.o
         64         26        392          0       1536        872   startup_stm32f40_41xxx.o
-       374         24          0          0          0       6110   stm32f4xx_adc.o
        154          0          0          0          0       1924   stm32f4xx_gpio.o
-        96         18          0          0          0       1959   stm32f4xx_rcc.o
-        72         16          0          0          0       1820   stm32f4xx_rng.o
+        32          6          0          0          0        653   stm32f4xx_rcc.o
        340         32          0          0          0       1657   system_stm32f4xx.o
-       988         44     206272          0          0      12096   tft.o
-       652         32          0          0          0       4341   touch.o
+       924         52       8236          0          0       8537   tft.o
 
     ----------------------------------------------------------------------
-      3552        240     206696          8       1572     306616   Object Totals
+      1632        120      22940         32       1536     271816   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        10          0          0          2          0          0   (incl. Padding)
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1027,8 +961,8 @@ Image component sizes
         10          0          0          0          0        116   fpinit.o
 
     ----------------------------------------------------------------------
-       292         16          0          0        100        700   Library Totals
-         6          0          0          0          4          0   (incl. Padding)
+       292         16          0          0         96        700   Library Totals
+         6          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1038,7 +972,7 @@ Image component sizes
         10          0          0          0          0        116   fz_wm.l
 
     ----------------------------------------------------------------------
-       292         16          0          0        100        700   Library Totals
+       292         16          0          0         96        700   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1047,15 +981,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3844        256     206696          8       1672     302960   Grand Totals
-      3844        256     206696          8       1672     302960   ELF Image Totals
-      3844        256     206696          8          0          0   ROM Totals
+      1924        136      22940         32       1632     270860   Grand Totals
+      1924        136      22940         32       1632     270860   ELF Image Totals
+      1924        136      22940         32          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               210540 ( 205.61kB)
-    Total RW  Size (RW Data + ZI Data)              1680 (   1.64kB)
-    Total ROM Size (Code + RO Data + RW Data)     210548 ( 205.61kB)
+    Total RO  Size (Code + RO Data)                24864 (  24.28kB)
+    Total RW  Size (RW Data + ZI Data)              1664 (   1.63kB)
+    Total ROM Size (Code + RO Data + RW Data)      24896 (  24.31kB)
 
 ==============================================================================
 

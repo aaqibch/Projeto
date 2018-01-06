@@ -3,6 +3,7 @@
 ".\objects\tft.o"
 ".\objects\touch.o"
 ".\objects\colortest.o"
+".\objects\random.o"
 ".\objects\misc.o"
 ".\objects\stm32f4xx_adc.o"
 ".\objects\stm32f4xx_exti.o"

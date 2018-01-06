@@ -1,7 +1,5 @@
 #include "tft.h"
-#include "font.h"
-#include "img.h"
-#include "FreeSans12pt7b.h"
+#include "FreeSans24pt7b.h"
 
 #define HIGH Bit_SET
 #define LOW Bit_RESET
@@ -131,16 +129,6 @@ void rectFillTFT(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c){
     for(j=0;j<h;j++)
       writeData16(c);
 }
-/*
-void rectFillTFT(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c){
-	int i,j;
-	setAdress(y, x, y+h-1, x+w-1);
-
-  for(i=0;i<w;i++)
-    for(j=0;j<h;j++)
-      writeData16(c);
-}*/
-
 void clearTFT(uint16_t c){
 	rectFillTFT(0, 0, WIDTH, HEIGHT, c);
 }
@@ -153,6 +141,8 @@ void vLineTFT(uint16_t x, uint16_t y, uint16_t l, uint16_t c){
 	rectFillTFT(x, y, 5, l, c);
 }
 
+
+/*
 void letterTFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char letter){
 	int i, j;
 	int l = letter*5;
@@ -175,42 +165,54 @@ void stringTFT0(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[], uint
 	int i;
 	for(i=0; i<len; i++)
 		letterTFT(x+(i*s*6),y,s,c,str[i]);
-}
+}*/
 
 
 void letter2TFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char letter){
 	
 	
-	letter -= FreeSans12pt7b.first;
+	letter -= FreeSans24pt7b.first;
+	y += FreeSans24pt7b.yAdvance * (s-1);
 	//GFXglyph *glyph  = FreeSans12pt7bGlyphs[letter];
 	//uint8_t  *bitmap = FreeSans12pt7b.bitmap;
 
-	uint16_t bo = FreeSans12pt7bGlyphs[letter].bitmapOffset;
-	uint8_t  w  = FreeSans12pt7bGlyphs[letter].width,
-					 h  = FreeSans12pt7bGlyphs[letter].height;
-	int8_t   xo = FreeSans12pt7bGlyphs[letter].xOffset,
-					 yo = FreeSans12pt7bGlyphs[letter].yOffset;
+	uint16_t bo = FreeSans24pt7bGlyphs[letter].bitmapOffset;
+	uint8_t  w  = FreeSans24pt7bGlyphs[letter].width,
+					 h  = FreeSans24pt7bGlyphs[letter].height;
+	int8_t   xo = FreeSans24pt7bGlyphs[letter].xOffset,
+					 yo = FreeSans24pt7bGlyphs[letter].yOffset;
 	uint8_t  xx, yy, bits = 0, bit = 0;
 
 	for(yy=0; yy<h; yy++) {
-			for(xx=0; xx<w; xx++) {
-					if(!(bit++ & 7)) {
-							bits = FreeSans12pt7bBitmaps[bo++];
-					}
-					if(bits & 0x80) {
-									rectFillTFT(x+(xo+xx)*s, y+(yo+yy)*s, s, s, c);
-					}
-					bits <<= 1;
-			}
+		for(xx=0; xx<w; xx++) {
+				if(!(bit++ & 7)) {
+						bits = FreeSans24pt7bBitmaps[bo++];
+				}
+				if(bits & 0x80) {
+								rectFillTFT(x+(xo+xx)*s, y+(yo+yy)*s, s, s, c);
+				}
+				bits <<= 1;
+		}
 	}
+}
+
+void string2TFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[]){
+	int i = 0;
+	int d = 0;
+	char letter;
 	
-	
+	while(str[i]){
+		letter = str[i] - FreeSans24pt7b.first;
+		letter2TFT(x+d,y,s,c,str[i]);
+		d += FreeSans24pt7bGlyphs[letter].xAdvance * s;
+		i++;
+	}
 }
 
 void buttonTFT(uint16_t x, uint16_t y, char str[]){
 	uint16_t w=240, h=60;
 	rectFillTFT(x,y,w,h,0xFFFF);
-	stringTFT0(x+20,y+15,5,0,str,sizeof(&str)+1);
+	string2TFT(x+20,y+45,1,0,str);
 	
 	hLineTFT(x,y,w,0);
 	hLineTFT(x,y+h,w,0);
@@ -222,42 +224,45 @@ uint16_t RGBto565(uint8_t r, uint8_t g, uint8_t b){
 	return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
 }
 
-void loadImg(uint16_t x, uint16_t y){
+void loadImg(uint16_t x, uint16_t y, struct Img img){
 	int i;
 	
-	dalt2.arr = dalt2_img;
-	dalt2.size = 202248;
-	dalt2.w = 320;
-	dalt2.h = 320;
-	
-	setAdress(x, y, x+dalt2.w-1, y+dalt2.h-1);
+	setAdress(x, y, x+img.w-1, y+img.h-1);
 
-  for(i=0;i<dalt2.size;i+=2){
-    writeData16(dalt2.arr[i+1]<<8 | dalt2.arr[i]);
+  for(i=0;i<img.w * img.h * 2;i+=2){
+    writeData16(img.arr[i+1]<<8 | img.arr[i]);
 	}
 }
 
-void resizeImg(uint16_t x, uint16_t y, uint16_t s){
-	char arr [9];
-	uint16_t w = 3, h = 3;
-	int i, j;
-	int a;
+void resizeImg(uint16_t x, uint16_t y, struct Img img, uint16_t s){
+
+	uint16_t w = img.w, h = img.h;
+	int i, j, k;
+	int a=0;
 	
 	setAdress(x, y, x+(w*s)-1, y+(h*s)-1);
-	x = 0;
-	y = 0;
-	
-	for(j=0; j<h; j++){
-		if(j%s == 0)
-			y++;	
-		for(i=0; i<w; i++){
-			if(i%s == 0)
-				x++;
-			a = x + y*w*s;
-			a *= 2;
-			writeData16(arr[a+1]<<8 | arr[a]);
-		}
-		x = 0;
+
+	while(a<w*h*2){
+		for(k=0;k<s;k++)
+			for(i=0; i<h*2;i+=2)
+				for(j=0; j<s; j++)
+					writeData16(img.arr[a+i+1]<<8 | img.arr[a+i]);
+		a+=w*2;
 	}
+}
+
+void loadMonoImg(uint16_t x, uint16_t y, uint16_t c1, uint16_t c2, struct Img img){
+	int i, j;
+	int w = img.w, h = img.h;
+	int s = w*h/8;
 	
+	setAdress(x, y, x + w-1, y+ h-1);
+
+	for(i=0; i<s; i++)
+		for(j=0; j<8; j++){
+			if((img.arr[i]>>(7-j)) & 0x01)
+				writeData16(c1);
+			else 
+				writeData16(c2);
+		}
 }

@@ -12,6 +12,10 @@
 #define DBI_PERIPH RCC_AHB1Periph_GPIOE
 #define DBI_PINS GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6 | GPIO_Pin_7
 
+struct Img{
+	const uint8_t *arr;
+	uint16_t w, h;
+};
 
 void initTFT(void);
 void rectFillTFT(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t c);
@@ -22,6 +26,11 @@ void buttonTFT(uint16_t x, uint16_t y, char str[]);
 
 uint16_t RGBto565(uint8_t r, uint8_t g, uint8_t b);
 
-void loadImg(uint16_t x, uint16_t y);
+void loadImg(uint16_t x, uint16_t y, struct Img img);
 
+void letter2TFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char letter);
+void string2TFT(uint16_t x, uint16_t y, uint16_t s, uint16_t c, char str[]);
+
+void resizeImg(uint16_t x, uint16_t y, struct Img img, uint16_t s);
+void loadMonoImg(uint16_t x, uint16_t y, uint16_t c1, uint16_t c2, struct Img img);
 #endif

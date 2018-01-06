@@ -5,3 +5,7 @@ save data.hex &word_data[0], &word_data[16000]
 
 
 define button "Save audio", "save data.hex &word_data[0], &word_data[8000]"
+
+
+
+copy C:\Users\ruipf\Desktop\A04S01\STM32F4-Discovery_FW_V1.1.0\Project\mic2\MDK-ARM\data.hex input\data.hex

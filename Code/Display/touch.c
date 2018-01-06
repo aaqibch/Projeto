@@ -158,7 +158,8 @@ int getTouchZ(){
 }
 
 uint8_t isTouch(){
-  return getTouchZ()>200;
+	int val = getTouchZ();
+  return val<0x265 && val>0x245;
 }
 
 uint8_t inBox(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t tx, uint16_t ty){
