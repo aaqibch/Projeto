@@ -6,5 +6,6 @@ int main(){
 	
 	val = getLDR();
 	while(1){
+		val = getLDR();
 	}
 }

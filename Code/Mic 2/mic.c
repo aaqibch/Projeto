@@ -1,6 +1,7 @@
 #include "mic.h"
+#include "lpc.h"
 
-float word_data[Buffer_Mic_size];
+double word_data[Buffer_Mic_size];
 
 volatile static unsigned short int local_buffer0[64];
 volatile static unsigned short int local_buffer1[64];
@@ -76,7 +77,8 @@ void check_buffer(short int* buffer){
 		word_data[j++] = buffer[i] / 32768.0;
 		
 	if(j == Buffer_Mic_size)	{		
-		//micStop();	
+		//micStop();
+		ForwardLinearPrediction(word_data);		
 		j = 0;
 	}
 }

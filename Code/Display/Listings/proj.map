@@ -233,7 +233,7 @@ Removing Unused input sections from the image.
     Removing touch.o(i.getTouchXY), (264 bytes).
     Removing touch.o(i.getTouchZ), (136 bytes).
     Removing touch.o(i.inBox), (36 bytes).
-    Removing touch.o(i.isTouch), (18 bytes).
+    Removing touch.o(i.isTouch), (30 bytes).
     Removing touch.o(i.pinMode), (40 bytes).
     Removing colortest.o(.rev16_text), (4 bytes).
     Removing colortest.o(.revsh_text), (4 bytes).
@@ -408,7 +408,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f4xx.o(i.SystemCoreClockUpdate), (192 bytes).
     Removing system_stm32f4xx.o(.data), (20 bytes).
 
-197 unused section(s) (total 6564 bytes) removed from the image.
+197 unused section(s) (total 6576 bytes) removed from the image.
 
 ==============================================================================
 

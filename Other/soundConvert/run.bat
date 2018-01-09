@@ -11,4 +11,3 @@ copy input\data.hex output\data.hex
 ren output\data.hex %timestamp%.hex
 
 del input\data.hex
-del input\data.raw

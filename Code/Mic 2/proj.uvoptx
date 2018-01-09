@@ -150,9 +150,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>80</LineNumber>
+          <LineNumber>82</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134224090</Address>
+          <Address>134225226</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,7 +161,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\mic.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\proj\mic.c\80</Expression>
+          <Expression>\\proj\mic.c\82</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -206,6 +206,11 @@
           <count>0</count>
           <WinNumber>2</WinNumber>
           <ItemText>word_data</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>coefs</ItemText>
         </Ww>
       </WatchWindow2>
       <ToolboxButtons>
@@ -333,6 +338,30 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\libPDMFilter_Keil.lib</PathWithFileName>
       <FilenameWithoutPath>libPDMFilter_Keil.lib</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>6</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\lpc.c</PathWithFileName>
+      <FilenameWithoutPath>lpc.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>7</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\lpc.h</PathWithFileName>
+      <FilenameWithoutPath>lpc.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
